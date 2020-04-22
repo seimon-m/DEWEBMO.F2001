@@ -4,6 +4,9 @@ document.addEventListener("down", onkeydown, false);
 document.addEventListener("up", onkeyup, false);
 const flipperLeft = document.querySelector('.flipper-left');
 const flipperRight = document.querySelector('.flipper-right');
+const playfield = document.querySelector('.playfield');
+const screen = document.querySelector('.screen');
+let movePlayfield = 0;
 
 onkeydown = onkeyup = function(e){
 	// left key down => left flipper up
@@ -29,5 +32,17 @@ onkeydown = onkeyup = function(e){
     // space
 	if ((e.keyCode=="32")&&(e.type=='keydown'))  {
 		console.log ("Tilt (Space)");
+    } else
+    // w
+	if ((e.keyCode=="87")&&(e.type=='keydown'))  {
+        console.log ("w down");
+        movePlayfield += 100;
+        playfield.style.transform = "translate(50%, " + movePlayfield + "px)";
+    } else
+    // s
+	if ((e.keyCode=="83")&&(e.type=='keydown'))  {
+        console.log ("s down");
+        movePlayfield -= 100;
+        playfield.style.transform = "translate(50%, " + movePlayfield + "px)";
     }   
 }

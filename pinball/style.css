@@ -1,21 +1,24 @@
 
 
-.table {
-    width: 400px; height: 800px;
-    background: url('assets/pinball-table.jpg') -10px -10px;
-    /* transform: scale(2); */
-}
 
-.playfield {
+
+/* .playfield {
     transform: translateX(50%);
-    
+} */
+
+.table {
+    width: 400px; 
+    height: 800px;
+    /* background: url('assets/pinball-table.jpg') -10px -10px; */
+    background-color: blanchedalmond;
+    /* transform: scale(2); */
 }
 
 .screen {
     background-color: #a8d8e4;
 }
 
-.ball {
+/* .ball {
 	position: absolute;
 	top: 70px;
 	left: 150px;
@@ -24,7 +27,7 @@
 	border-radius: 67px;
     background: #f9ad77;
     box-shadow: inset 6px 6px 12px #d49365, inset -6px -6px 12px #ffc789;
-}
+} */
 
 .flipper{
     position: absolute;
@@ -37,7 +40,7 @@
 
 .flipper-left{
     top: 500px;
-    left: 30px;
+    left: 200px;
     clip-path: polygon(80% 40%, 80% 60%, 0 80%, 0 20%);
     transform: rotateZ(45deg);
     transform-origin: 0%;

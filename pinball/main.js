@@ -177,18 +177,6 @@ ball.anim.onfinish = () => {
     ball.vx = Math.max(-ball.maxSpeed, ball.vx);
     ball.vy = Math.max(-ball.maxSpeed, ball.vy);
 
-    ball.x+=ball.vx; 
-    ball.y+=ball.vy;
-    console.log(ball.y)
-    
-    for (let i = 0, len = allCollisionObjects.length; i < len; i++) {
-        let obj = allCollisionObjects[i];
-        if (obj.detectCollision(ball)) {
-            console.log('Kollision', obj.elem);
-            obj.reflectCollision(ball);
-        }
-    }
-    
 	ball.keyframes = [{transform: `translate(${oldx}px, ${oldy}px)`},{transform: `translate(${ball.x}px, ${ball.y}px)`}];
 	ball.anim.effect.setKeyframes(ball.keyframes);
 	ball.anim.play();

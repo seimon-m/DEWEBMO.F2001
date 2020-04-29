@@ -8,6 +8,9 @@ const playfield = document.querySelector('.playfield');
 const screen = document.querySelector('.screen');
 let movePlayfield = 0;
 
+
+
+/* Tastaturabfrage */
 onkeydown = onkeyup = function(e){
 	// left key down => left flipper up
 	if ((e.keyCode=="37")&&(e.type=='keydown'))  {

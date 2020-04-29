@@ -13,17 +13,14 @@ const GRAVITY = 0.6;
 
 
 class Table {
-    constructor() {
+    constructor(bounce) {
+        this.bounce = bounce;
         this.table1 = document.querySelector('.table')
         this.tableStyle = getComputedStyle(this.table1)
         this.widthString = this.tableStyle.width;
         this.heightString = this.tableStyle.height;
-        this.width = this.widthString.replace("px", "");
-        this.height = this.heightString.replace("px", "");
-        console.log(this.table1.className)
-        console.log(this.width + " / " + this.height)
-        console.log(typeof this.width);
-        
+        this.width = parseInt(this.widthString, 10);
+        this.height = parseInt(this.heightString, 10);
     }
 
     detectCollision(ball){
@@ -52,7 +49,7 @@ class Table {
             b.vy = -b.vy*this.bounce;
         } else if (b.y+b.r > yMax) {
             if (Math.abs(b.vy)>1){b.x = b.x - ((b.y-yMax)+b.r)/b.vy*b.vx}
-            b.y = yMax-b.r; 
+            b.y = yMax-b.r;
             b.vx = b.vx*this.bounce;
             b.vy = -b.vy*this.bounce;
         }
@@ -132,7 +129,7 @@ class Bumper  {
         //table.elem.appendChild(this.elem);
         table.table1.appendChild(this.elem);
 
-        console.log(this.elem.className)
+        // console.log(this.elem.className)
     }
     
     detectCollision(b){
@@ -158,11 +155,51 @@ class Bumper  {
     }
 }
 
-const table = new Table();
-const ball = new Ball(20, 20, 20, 2, 0);
-const bumper1 = new Bumper("b4", 100, 100, 45, 2);
+class BumperCSS {
+    constructor(className, bounce) {
+        this.bounce = bounce;
+        this.b2 = document.querySelector(className);
+        console.log(this.b2)
+        this.b2Style = getComputedStyle(this.b2)
+        this.width = parseInt(this.b2Style.width, 10);
+        this.height = parseInt(this.b2Style.height, 10);
+        this.r = this.width / 2;
+        this.x = parseInt(this.b2Style.left, 10) + this.r;
+        this.y = parseInt(this.b2Style.top, 10) + this.r;
+        
+    }
+    
+    detectCollision(b){
+        // Circle-Circle Collision
+        // Calculate difference between centres
+        let dx = b.x - this.x;
+        let dy = b.y - this.y;
+        // Get squared distance with Pythagoras
+        let distSquared = (dx * dx) + (dy * dy);
+        return distSquared <= (this.r + b.r) * (this.r + b.r);
+    }
+    
+    reflectCollision(b){
+        let dx = b.x - this.x;
+        let dy = b.y - this.y;
+        let closestx = b.x + (dx / GetLength(dx,dy) * this.r);
+        let closesty = b.y + (dy / GetLength(dx,dy) * this.r);
+        let normalx = (b.x - closestx) / GetLength(b.x - closestx, b.y - closesty);
+        let normaly = (b.y - closesty) / GetLength(b.x - closestx, b.y - closesty);
+        let impactSpeed = (-b.vx * normalx + (-b.vy * normaly)) * this.bounce;
+        b.vx += normalx * impactSpeed;
+        b.vy += normaly * impactSpeed;
+    }
+}
 
-const allCollisionObjects = [table];
+const table = new Table(1);
+const ball = new Ball(50, 50, 20, 2, 0);
+const bumper4 = new Bumper("b4", 100, 200, 45, 4);
+const bumper1 = new BumperCSS('.b1', 3);
+const bumper2 = new BumperCSS('.b2', 4);
+const bumper3 = new BumperCSS('.b3', 5);
+
+const allCollisionObjects = [table, bumper1, bumper2, bumper3, bumper4];
 
 // Initialize Animation
 ball.anim = ball.elem.animate({},{duration: tbf});
@@ -171,7 +208,19 @@ ball.anim = ball.elem.animate({},{duration: tbf});
 ball.anim.onfinish = () => {
     let oldx = ball.x; 
     let oldy = ball.y;
+
+    ball.x+=ball.vx; 
+    ball.y+=ball.vy;
+    // console.log(ball.y)
     
+    for (let i = 0, len = allCollisionObjects.length; i < len; i++) {
+        let obj = allCollisionObjects[i];
+        if (obj.detectCollision(ball)) {
+            // console.log('Kollision', obj);
+            obj.reflectCollision(ball);
+        }
+    }
+
     ball.vx = Math.min( ball.maxSpeed, ball.vx);
     ball.vy = Math.min( ball.maxSpeed, ball.vy + GRAVITY);
     ball.vx = Math.max(-ball.maxSpeed, ball.vx);
@@ -214,13 +263,13 @@ onkeydown = onkeyup = function(e){
     // w
 	if ((e.keyCode=="87")&&(e.type=='keydown'))  {
         console.log ("w down");
-        movePlayfield += 100;
-        playfield.style.transform = "translate(50%, " + movePlayfield + "px)";
+        movePlayfield -= 100;
+        playfield.style.transform = "translateY(" + movePlayfield + "px)";
     } else
     // s
 	if ((e.keyCode=="83")&&(e.type=='keydown'))  {
         console.log ("s down");
-        movePlayfield -= 100;
-        playfield.style.transform = "translate(50%, " + movePlayfield + "px)";
+        movePlayfield += 100;
+        playfield.style.transform = "translateY(" + movePlayfield + "px)";
     }   
 }

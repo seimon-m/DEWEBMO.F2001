@@ -12,7 +12,7 @@ const flipperRight = document.querySelector('.flipper-right');
 const playfield = document.querySelector('.playfield');
 const screen = document.querySelector('.screen');
 let movePlayfield = 0;
-const fps = 100; // Frames per Second
+const fps = 10; // Frames per Second
 const tbf = 1000/fps; // Time Between 2 Frames
 const GRAVITY = 0.8;
 
@@ -55,7 +55,7 @@ ball.anim.onfinish = () => {
         {transform: `translate(${ball.x}px, ${ball.y}px)`}
     ];
 	ball.anim.effect.setKeyframes(ball.keyframes);
-	ball.anim.play();
+    ball.anim.play();
 };
 
 /* Tastaturabfrage */

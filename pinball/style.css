@@ -138,7 +138,7 @@
     top: 690px;
     height: 10px;
     width: 200px;
-    transform: rotateZ(-20deg);
+    transform: rotateZ(0deg);
     background-color: darkcyan;
 }
 
@@ -147,6 +147,6 @@
     top: 200px;
     height: 10px;
     width: 200px;
-    transform: rotateZ(-20deg);
+    transform: rotateZ(0deg);
     background-color: hotpink;
 }

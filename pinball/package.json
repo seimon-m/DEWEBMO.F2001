@@ -1,0 +1,22 @@
+{
+  "name": "pinball",
+  "version": "1.0.0",
+  "description": "pinball game for DEWEBMO",
+  "main": "main.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seimon-m/DEWEBMO.F2001.git"
+  },
+  "author": "Simon Müller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seimon-m/DEWEBMO.F2001/issues"
+  },
+  "homepage": "https://github.com/seimon-m/DEWEBMO.F2001#readme",
+  "dependencies": {
+    "victor": "^1.1.0"
+  }
+}

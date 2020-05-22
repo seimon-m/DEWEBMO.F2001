@@ -22,10 +22,10 @@ const ball = new Ball(50, 50, 20, 2, 0, table);
 const bumper1 = new Bumper('.b1', 4);
 const bumper2 = new Bumper('.b2', 2);
 const bumper3 = new Bumper('.b3', 3);
-const wall1 = new Wall('.w1', 2);
+// const wall1 = new Wall('.w1', 2);
 const wall2 = new Wall('.w2', 2);
 
-const allCollisionObjects = [table, bumper1, bumper2, bumper3, wall1, wall2];
+const allCollisionObjects = [table, bumper1, bumper2, bumper3, wall2];
 
 // Initialize Animation
 ball.anim = ball.elem.animate({},{duration: tbf});

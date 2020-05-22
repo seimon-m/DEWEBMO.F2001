@@ -131,6 +131,7 @@
 
 .wall {
     position: absolute;
+    transform-origin: 0% 0%;
 }
 
 .w1 {
@@ -138,15 +139,15 @@
     top: 690px;
     height: 10px;
     width: 200px;
-    transform: rotateZ(0deg);
+    transform: rotateZ(-30deg);
     background-color: darkcyan;
 }
 
 .w2 {
     left: 70px;
-    top: 200px;
+    top: 300px;
     height: 10px;
     width: 200px;
-    transform: rotateZ(0deg);
+    transform: rotateZ(-20deg);
     background-color: hotpink;
 }

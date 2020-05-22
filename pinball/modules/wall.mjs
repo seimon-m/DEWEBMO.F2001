@@ -1,7 +1,4 @@
 
-//let vec1 = new Victor(2,5);
-
-
 
 
 class Wall {
@@ -13,31 +10,52 @@ class Wall {
         this.height = parseInt(this.style.height, 10);
         this.left = parseInt(this.style.left, 10);
         this.top = parseInt(this.style.top, 10);
-        this.rotateZ = 0;
+        this.transform = this.style.transform;
+        this.rotateRad = this.transform.split('(')[1];
+        this.rotateRad = this.rotateRad.split(')')[0];
+        this.rotateRad = this.rotateRad.split(',');
+        this.rotateZ = Math.round(Math.atan2(this.rotateRad[1], this.rotateRad[0]) * (180 / Math.PI));
     
 
         // PreCalculations for Collision
-        this.p1 = [this.left, this.top];
-        this.p2 = [this.left+this.width,this.top];
-        this.p2 = vec.rotatePointAround(deg2rad(this.rotateZ),this.p1,this.p2); 
-        this.p1p2 = vec.sub(this.p2,this.p1);
+        // this.p1 = [this.left, this.top];
+        // this.p2 = [this.left+this.width,this.top];
+        // this.p2 = vec.rotatePointAround(deg2rad(this.rotateZ),this.p1,this.p2); 
+        // this.p1p2 = vec.sub(this.p2,this.p1);
+        // console.log("P1: " + this.p1);
+        // console.log("P2: " + this.p2);
+        // console.log("P1P2: " + this.p1p2);
+        // console.log("Width: " + this.width);
 
-        // this.p1 = new Victor(this.left, this.top);
-        // this.p2 = new Victor(this.left + this.width, this.top);
-        // this.p1p2 = this.p2.subtract(this.p1);
-        // this.p1p2.rotateByDeg(this.rotateZ);
+        this.p1 = new Victor(this.left, this.top);
+        this.p2 = new Victor((this.left + this.width), this.top);
+        this.p1p2 = this.p1.clone().subtract(this.p2);
+        this.p1p2 = this.p1p2.clone().rotateByDeg(this.rotateZ);
+        this.p2 = this.p1.clone().add(this.p1p2);
+        console.log("P1a: " + this.p1.clone().toString());
+        console.log("P2a: " + this.p2.clone().toString());
+        console.log("P1P2a: " + this.p1p2.clone().toString());
+        console.log("Width: " + this.width);
+        
+        
  }
  
  detectCollision(b){
-     let ballCenter = [b.x,b.y];
-     let p1_ballCenter = vec.sub(ballCenter,this.p1);
+    //  let ballCenter = [b.x,b.y];
+     let ballcenter = new Victor(b.x, b.y);
+    //  let p1_ballCenter = vec.sub(ballCenter,this.p1);
+     let p1_ballCenter = ballcenter.subtract(this.p1);
+     
      
      // length of projection of p1_ballCenter onto p1p2
-     let a = vec.dot(this.p1p2, this.p1p2);
-     let t = vec.dot(this.p1p2, p1_ballCenter)/a;  
+    //  let a = vec.dot(this.p1p2, this.p1p2);
+    let a = this.p1p2.clone().multiply(this.p1p2);
+    //  let t = vec.dot(this.p1p2, p1_ballCenter)/a; 
+    let t = this.p1p2.clone().multiply(p1_ballCenter) / a;
      
      if ((t >= 0) && (t <= 1)) {
-         let c = vec.dot(p1_ballCenter, p1_ballCenter);
+        //  let c = vec.dot(p1_ballCenter, p1_ballCenter);
+        let c = ballCenter.clone().multiply(ballcenter);
          let r2 = c - a * t * t;
          return (r2 <= b.r*b.r); // true if collides
      }

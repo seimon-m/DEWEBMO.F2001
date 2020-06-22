@@ -3,19 +3,9 @@ import express from 'express';
 const app = express()
  
 app.get('/', (req, res) => {
- 
+  res.send("Test");
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', '*');
- 
-  // Request methods you wish to allow
-  //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
- 
-  // Request headers you wish to allow
-  // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
- 
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
-  // res.setHeader('Access-Control-Allow-Credentials', true);
  
   // Lese File
   fs.readFile('highscores.json', 'utf8', (err, data) => {
@@ -54,5 +44,13 @@ app.get('/', (req, res) => {
     }
   });
 });
+
+app.post('/save', ({name, score})) {
+  let date = new Date;
+  fs.writeFile('highscores.json', data, (err)) => {
+    if (err) throw err;
+  }
+  console.log("new score saved!")
+}
  
 app.listen(8080);

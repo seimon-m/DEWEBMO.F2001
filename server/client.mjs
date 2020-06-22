@@ -14,7 +14,7 @@ function updateHighScore(){
     return out;
   }
 
-  let url = "http://127.0.0.1:8080/?score=" + score + "&name=" + name;
+  let url = "http://localhost:3000/?score=" + score + "&name=" + name;
   fetch(url)
   .then(response => response.json())
   .then(data => listDiv.innerHTML = renderHighScoreList(data))

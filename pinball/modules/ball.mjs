@@ -9,7 +9,7 @@ class Ball {
         this.vx = vx;
         this.vy = vy;
         this.table = tableObj;
-        this.maxSpeed = 25;
+        this.maxSpeed = 5;
 	    this.keyframes = [];
         
         // Create DOM-Element

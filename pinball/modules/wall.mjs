@@ -1,6 +1,3 @@
-
-
-
 class Wall {
     constructor(className, bounce) {
         this.bounce = bounce;
@@ -42,25 +39,27 @@ class Wall {
  
  detectCollision(b){
     //  let ballCenter = [b.x,b.y];
-     let ballcenter = new Victor(b.x, b.y);
+    let ballcenter = new Victor(b.x, b.y);
+    //console.log("Ballcenter: " + ballcenter);
     //  let p1_ballCenter = vec.sub(ballCenter,this.p1);
-     let p1_ballCenter = ballcenter.subtract(this.p1);
-     
-     
-     // length of projection of p1_ballCenter onto p1p2
+    let p1_ballCenter = this.p1.clone().subtract(ballcenter);
+    //console.log("p1_ballCenter: " + p1_ballCenter);
+    
+    // length of projection of p1_ballCenter onto p1p2
     //  let a = vec.dot(this.p1p2, this.p1p2);
-    let a = this.p1p2.clone().multiply(this.p1p2);
+    let a = this.p1p2.clone().dot(this.p1p2);
     //  let t = vec.dot(this.p1p2, p1_ballCenter)/a; 
-    let t = this.p1p2.clone().multiply(p1_ballCenter) / a;
-     
-     if ((t >= 0) && (t <= 1)) {
-        //  let c = vec.dot(p1_ballCenter, p1_ballCenter);
-        let c = ballCenter.clone().multiply(ballcenter);
-         let r2 = c - a * t * t;
-         return (r2 <= b.r*b.r); // true if collides
-     }
- }
+    let t = this.p1p2.clone().dot(p1_ballCenter) / a;
+    console.log("t: " + a);
 
+    if ((t >= 0) && (t <= 1)) {
+      //  let c = vec.dot(p1_ballCenter, p1_ballCenter);
+      let c = ballCenter.clone().dot(ballcenter);
+      let r2 = c - a * t * t;
+      console.log("detect wall");
+      return (r2 <= b.r*b.r); // true if collides
+    }
+ }
  
  reflectCollision(b){
      let ballCenter = [b.x,b.y];

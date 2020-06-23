@@ -68,7 +68,7 @@ function setup() {
     const bumper3 = new Bumper('.b3', 3);
     // const wall1 = new Wall('.w1', 2);
     // const wall2 = new Wall('.w2', 2);
-    const line1 = new Line(table, new Victor(150, 230), new Victor(250, 200), 'l1');
+    const line1 = new Line(table, new Victor(70, 230), new Victor(150, 200), 'l1');
 
     const allCollisionObjects = [bumper1, bumper2, bumper3, line1];
 

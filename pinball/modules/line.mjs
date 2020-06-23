@@ -33,7 +33,7 @@ export class Line {
         this.line.style.width = vec.length()-3 + 'px';
 
         // Collision Shape Line um 3 rechts/links verkürzen -> weniger Ecken Probleme
-        const offsetVec = vec.normalize().multiplyScalar(3)
+        const offsetVec = vec.normalize().multiplyScalar(5);
         const newA = this.a.clone().add(offsetVec);
         const newB = this.b.clone().subtract(offsetVec);
 

@@ -16,14 +16,14 @@ export class CollisionDetection{
         this._dynamicShapes.push(collisionShape);
     }
 
-    addKinematicObject(collidableObj){
-        this.addKinematicShape(collidableObj.getCollisionShape());
-    }
+    // addKinematicObject(collidableObj){
+    //     this.addKinematicShape(collidableObj.getCollisionShape());
+    // }
 
-    addKinematicShape(collisionShape){
-        collisionShape.addMoveListener(this.updateKinematic.bind(this));
-        this._kinematicShapes.push(collisionShape);
-    }
+    // addKinematicShape(collisionShape){
+    //     collisionShape.addMoveListener(this.updateKinematic.bind(this));
+    //     this._kinematicShapes.push(collisionShape);
+    // }
 
     addStaticObject(collidableObj){ 
         this.addStaticShape(collidableObj.getCollisionShape());

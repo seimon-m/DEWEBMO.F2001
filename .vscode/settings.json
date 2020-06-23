@@ -1,4 +1,5 @@
 {
     "editor.fontSize": 14,
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "liveServer.settings.port": 5501
 }

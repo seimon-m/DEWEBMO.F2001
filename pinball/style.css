@@ -31,37 +31,23 @@
     box-shadow: inset 6px 6px 12px #d49365, inset -6px -6px 12px #ffc789;
 }
 
-.flipper{
+/* .flipper{
     position: absolute;
     background: #f9ad77;
     width: 140px;
     height: 50px;
     background-size: 100px 40px;
     transition: all 0.1s ease-out;
-}
+} */
 
 .flipper-left{
-    top: 500px;
-    left: 120px;
-    clip-path: polygon(80% 40%, 80% 60%, 0 80%, 0 20%);
-    transform: rotateZ(45deg);
     transform-origin: 0%;
 }
 
-.flipper-left.triggered{
-    transform: rotateZ(0deg);
-}
+
 
 .flipper-right{
-    top: 500px;
-    left: 240px;
-    clip-path: polygon(80% 80%, 80% 20%, 0 40%, 0 60%);
-    transform: rotateZ(-45deg);
-    transform-origin: 78%;
-}
-
-.flipper-right.triggered{
-    transform: rotateZ(0deg);
+    transform-origin: 100%;
 }
 
 .bumper {
@@ -69,7 +55,6 @@
     border-radius: 50%;
     
 }
-
 
 .b1 {
     top: 200px;
@@ -141,3 +126,27 @@
     transform: rotateZ(-30deg);
     background-color: hotpink;
 }
+
+/* .line {
+    position: absolute;
+    transform-origin: 0% 50%;
+}
+
+.l1 {
+    left: 50px;
+    top: 100px;
+    height: 
+} */
+
+.line {
+    height: 0px;
+    box-shadow: 0 0 4px 2px #46057a; 
+}
+
+.l1 {
+    box-shadow: 3px aquamarine;
+}
+
+/* .invisible{
+    display: none;
+} */

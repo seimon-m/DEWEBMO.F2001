@@ -12,7 +12,6 @@ import { Line } from './modules/line.mjs';
 // Setup attributes
 let lives = 4;
 const table = new Table(1);
-let door = new Line(table, new Victor(830, 1487), new Victor(900, 900)) // Flipper guiding line rechts
 
 
 setup();
@@ -24,14 +23,9 @@ function startGame(ball) {
 function setup() {
     document.addEventListener("down", onkeydown, false);
     document.addEventListener("up", onkeyup, false);
-    const flipperLeft = document.querySelector('.flipper-left');
-    const flipperRight = document.querySelector('.flipper-right');
     const playfield = document.querySelector('.playfield');
     const screen = document.querySelector('.screen');
     let movePlayfield = 0;
-    const fps = 10; // Frames per Second
-    const tbf = 1000/fps; // Time Between 2 Frames
-    const GRAVITY = 0.8;
     const collisonDetection = new CollisionDetection();
 
     
@@ -40,7 +34,6 @@ function setup() {
     // Setup Ball and Collision Detection and Reflection
     let ball = new Ball(new Victor(50, 50), 20, table);
     ball.getCollisionShape().addCollisionListener((object, collisionPoint, normal) => {
-        console.log(object);
         object.handleBallCollision(ball, collisionPoint, normal);
         if (object instanceof Circle) {
             const points = Math.min(Math.ceil(ball.velocity.length() * 0.2), 5);
@@ -75,7 +68,7 @@ function setup() {
     const bumper3 = new Bumper('.b3', 3);
     // const wall1 = new Wall('.w1', 2);
     // const wall2 = new Wall('.w2', 2);
-    const line1 = new Line(table, new Victor(60, 230), new Victor(150, 200), 'l1');
+    const line1 = new Line(table, new Victor(150, 230), new Victor(250, 200), 'l1');
 
     const allCollisionObjects = [bumper1, bumper2, bumper3, line1];
 

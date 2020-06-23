@@ -124,7 +124,6 @@ export class CollisionDetection{
     }
 
     detectCircleLine(dynamicShape, staticShape){
-
         const circle = dynamicShape; 
         const line = staticShape; 
 
@@ -182,14 +181,17 @@ export class CollisionShape{
     
     addCollisionListener(callback){
         this._collisionListeners.push(callback);
+        //console.log(this._collisionListeners);
     }
 
     notifyCollisionListeners(otherObject, collisionPoint, normal){
         this._collisionListeners.forEach(callback => callback(otherObject, collisionPoint, normal));
+        //console.log(otherObject);
     }
 
     hasCollided(otherObject, collisionPoint, normal){
         this.notifyCollisionListeners(otherObject, collisionPoint, normal);
+        //console.log(otherObject);
     }
 }
 

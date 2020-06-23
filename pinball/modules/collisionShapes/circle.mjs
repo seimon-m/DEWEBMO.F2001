@@ -7,7 +7,6 @@ export class Circle {
         this.bounce = bounce;
         this.elem = elem;
         this.collisionShape = new CollisionCircle(this, this.r, this.pos);
-        console.log(this.collisionShape);
     }
 
     setPos(pos) {

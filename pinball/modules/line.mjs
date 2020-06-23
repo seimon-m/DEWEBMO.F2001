@@ -1,4 +1,4 @@
-import { CollisionLine } from "../CollisionDetection.mjs";
+import { CollisionLine } from "../collisionDetection.mjs";
 
 export class Line {
     constructor(tableObj, a, b, cssClass) {

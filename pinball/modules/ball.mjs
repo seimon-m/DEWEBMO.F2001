@@ -4,7 +4,7 @@ export class Ball {
     constructor(pos, r, tableObj){
         this.className = 'ball';
         this.newpos = pos;
-        this.bounce = 0.3;
+        this.bounce = 0.2;
         this.r = r;
         this.gravityOn = true;
         this.velocity = new Victor(0, 0);

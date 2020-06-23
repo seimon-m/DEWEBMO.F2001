@@ -20,7 +20,7 @@
     background-color: #a8d8e4;
 }
 
-/* .ball {
+.ball {
 	position: absolute;
 	top: 70px;
 	left: 150px;
@@ -29,7 +29,7 @@
 	border-radius: 67px;
     background: #f9ad77;
     box-shadow: inset 6px 6px 12px #d49365, inset -6px -6px 12px #ffc789;
-} */
+}
 
 .flipper{
     position: absolute;
@@ -67,8 +67,7 @@
 .bumper {
     position: absolute;
     border-radius: 50%;
-    animation-duration: 0.1s;
-    animation-iteration-count: infinite;
+    
 }
 
 
@@ -79,6 +78,8 @@
     width: 50px;
     background-color: rgb(207, 27, 183);
     animation-play-state: paused;
+    animation-duration: 0.1s;
+    animation-iteration-count: 5;
     animation-name: animation1;
 }
 @keyframes animation1 {
@@ -94,6 +95,8 @@
     width: 100px;
     background-color: rgb(49, 216, 238);
     animation-play-state: paused;
+    animation-duration: 0.1s;
+    animation-iteration-count: 5;
     animation-name: animation2;
 
 }
@@ -110,27 +113,10 @@
     left: 250px;
     height: 50px;
     width: 50px;
-    animation-play-state: paused;
-    animation-name: animation3;
-    border-radius: 50px;
-    background: #f38841;
-    box-shadow:  20px 20px 60px #37b7cf, 
-                 -20px -20px 60px #4bf7ff;
+    background: #5067f3;
+    box-shadow: inset 28px 28px 55px #4458cf, 
+            inset -28px -28px 55px #5c76ff;
     
-}
-@keyframes animation3 {
-    0% { 
-        box-shadow: 0px 0px 0px 0px rgb(76, 231, 135);
-        background-color: rgb(76, 231, 135);  
-    }
-    60% { 
-        box-shadow: 0px 0px 40px 44px rgb(76, 231, 135);
-        background-color: rgb(76, 231, 135);  
-    }
-    100% { 
-        box-shadow: 0px 0px 80px 48px rgb(3, 59, 24);
-        background-color: rgb(3, 59, 24); 
-    }
 }
 
 .wall {

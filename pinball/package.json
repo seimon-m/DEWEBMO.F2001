@@ -18,5 +18,6 @@
   "homepage": "https://github.com/seimon-m/DEWEBMO.F2001#readme",
   "dependencies": {
     "victor": "^1.1.0"
-  }
+  },
+  "devDependencies": {}
 }

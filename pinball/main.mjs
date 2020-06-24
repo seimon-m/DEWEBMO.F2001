@@ -2,12 +2,10 @@
 import Table from './modules/table.mjs';
 import Bumper from './modules/bumper.mjs';
 import { Ball } from './modules/ball.mjs';
-//import Wall from './modules/wall.mjs';
 import { CollisionDetection } from './collisionDetection.mjs';
 import { Circle } from './modules/collisionShapes/circle.mjs';
 import { LeftFlipper } from './modules/flipper.mjs';
 import { RightFlipper } from './modules/flipper.mjs';
-import { FlipperLine } from './modules/flipperLine.mjs';
 import { Line } from './modules/line.mjs';
 import { StartStopGame } from './modules/startStopGame.mjs';
 
@@ -86,6 +84,12 @@ function setup() {
     // Start Game
     game.startGame(ball);
 }
+
+// Parallax
+let bg = document.getElementsByClassName('bg');
+new simpleParallax(bg, {
+    scale: 1.3
+});
 
 /* Tastaturabfrage */
 onkeydown = onkeyup = function(e){

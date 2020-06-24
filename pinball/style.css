@@ -1,17 +1,23 @@
 
 
-
-
 .playfield {
-    background-image: url(/assets/background.png);
-    background-size: cover;
+    z-index: 1;
+    position: absolute;
+}
+
+.bg {
+    /* width: 100%; */
+    height: 1800px;
+    /* object-fit: cover; */
 }
 
 .table {
+    position: absolute;
     width: 1080px; 
     height: 1800px;
     top: 0px;
     left: 0px;
+    z-index: 2;
     transform: translateX(400px);
     /* background: url('assets/pinball-table.jpg') -10px -10px; */
     /* background-color: blanchedalmond; */

@@ -87,10 +87,7 @@
     height: 100px;
     width: 100px;
     background-color: rgb(49, 216, 238);
-    animation-play-state: running;
-    animation-duration: 0.1s;
-    animation-iteration-count: 5;
-    animation-name: animation2;
+    animation: animation2 0.1s infinite;
 
 }
 @keyframes animation2 {
@@ -115,8 +112,15 @@
 .wall {
     position: absolute;
     transform-origin: center left;
-    background-color: darkcyan;
+    background-color: rgb(255, 255, 255);
+    animation: neon1 1.5s cubic-bezier(0.52, -0.29, 0.24, 1.72) infinite;
 }
+
+@keyframes neon1 {
+    0% { box-shadow: 0px 0px 20px 0px rgba(255,17,119,1); }
+    50% { box-shadow: 0px 0px 20px 10px rgba(255,17,119,1); }
+    100% { box-shadow: 0px 0px 20px 0px rgba(255,17,119,1); }
+  }
 
 .w1 {
     left: 20px;
@@ -175,9 +179,11 @@
 }
 
 .start {
+    position: absolute;
+    transform-origin: center left;
     left: 1010px;
     top: 1190px;
-    /* border-radius: 10%; */
+    border-radius: 20%;
     height: 10px;
     width: 40px;
     transform: rotateZ(0deg);

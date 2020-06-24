@@ -21,7 +21,6 @@ export class StartStopGame {
     }
 
     gameOver() {
-        console.log("Game over!")
 
         // setTimeout(() => {
         //     window.alert('Game Over! Do you want to restart the game?');

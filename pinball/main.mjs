@@ -36,7 +36,7 @@ function setup() {
     collisonDetection.addDynamicObject(ball);
 
     // Setup Flippers
-    const leftFlipper = new LeftFlipper(table, new Victor(355, 1560));
+    const leftFlipper = new LeftFlipper(table, new Victor(372, 1565));
     leftFlipper.getCollisionShape().addCollisionListener((object, collisionPoint, normal) => {
         if(leftFlipper.isKicking) {
             ball.applyForce(normal.multiplyScalar(25))
@@ -44,7 +44,7 @@ function setup() {
     });
     collisonDetection.addStaticObject(leftFlipper);
 
-    const rightFlipper = new RightFlipper(table, new Victor(525, 1560));
+    const rightFlipper = new RightFlipper(table, new Victor(528, 1565));
     rightFlipper.getCollisionShape().addCollisionListener((object, collisionPoint, normal) => {
         if(rightFlipper.isKicking) {
             ball.applyForce(normal.multiplyScalar(25))

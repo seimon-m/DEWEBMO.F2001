@@ -187,15 +187,15 @@
     height: 10px;
     width: 40px;
     transform: rotateZ(0deg);
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-name: start;
     animation-iteration-count: infinite;
-    background-color: rgb(255, 46, 9);
+    background-color: rgb(94, 84, 231);
 
 }
 @keyframes start {
-    0% { box-shadow: 0px 0px 5px 5px rgb(80, 21, 7); }
-    60% { box-shadow: 0px 0px 20px 20px rgb(238, 173, 34); }
+    0% { box-shadow: 0px 0px 10px 10px rgb(216, 21, 21); }
+    70% { box-shadow: 0px 0px 20px 20px rgb(24, 19, 66); }
     100% { box-shadow: 0px 0px 5px 5px rgb(80, 21, 7); }
 }
 
@@ -219,9 +219,9 @@
     box-shadow: 3px aquamarine;
 }
 
-/* .invisible{
+.invisible{
     display: none;
-} */
+}
 
 .test {
     background-color: darkmagenta;

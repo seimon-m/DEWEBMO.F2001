@@ -1,10 +1,10 @@
+// flipper.mjs from Jonas Wolter
+
 import { FlipperLine } from './flipperLine.mjs';
 
 export class Flipper{
 
     constructor(tableObj, assetSrc, cssClass, pos, startAngle, key){
-
-
         this._pos = pos;
         this.angle = startAngle;
         this._key = key;
@@ -34,7 +34,7 @@ export class Flipper{
         this.img.style.transform = 'translate('+this._pos.x + 'px,'+this._pos.y +'px)' + 'rotateZ('+this.angle+'deg)';
 
         // Append DOM-Element
-        tableObj.table1.appendChild(this.img);
+        tableObj.appendChild(this.img);
 
         this.initAnimation();
 

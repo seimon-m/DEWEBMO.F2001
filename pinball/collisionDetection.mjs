@@ -1,3 +1,4 @@
+// Collision Detection by Jonas Wolter
 
 export class CollisionDetection{
 
@@ -16,15 +17,6 @@ export class CollisionDetection{
         this._dynamicShapes.push(collisionShape);
     }
 
-    // addKinematicObject(collidableObj){
-    //     this.addKinematicShape(collidableObj.getCollisionShape());
-    // }
-
-    // addKinematicShape(collisionShape){
-    //     collisionShape.addMoveListener(this.updateKinematic.bind(this));
-    //     this._kinematicShapes.push(collisionShape);
-    // }
-
     addStaticObject(collidableObj){ 
         this.addStaticShape(collidableObj.getCollisionShape());
     }
@@ -33,10 +25,7 @@ export class CollisionDetection{
         this._staticShapes.push(collisionShape);
     }
 
-
-
     // does Collision Detection Stuff
-
     updateDynamic(){
         this._dynamicShapes.forEach((dynamicShape) =>{
             this._staticShapes.forEach((staticShape) => {
@@ -47,16 +36,6 @@ export class CollisionDetection{
             })
         })
     }
-
-    updateKinematic(){
-        this._dynamicShapes.forEach((dynamicShape) =>{
-            this._kinematicShapes.forEach((kinematicShape) => {
-                this.detect(dynamicShape, kinematicShape)
-            })
-        })
-    }
-
-
 
     // detects Collision between two objects
     detect(dynamicShape, staticShape){
@@ -181,17 +160,14 @@ export class CollisionShape{
     
     addCollisionListener(callback){
         this._collisionListeners.push(callback);
-        //console.log(this._collisionListeners);
     }
 
     notifyCollisionListeners(otherObject, collisionPoint, normal){
         this._collisionListeners.forEach(callback => callback(otherObject, collisionPoint, normal));
-        //console.log(otherObject);
     }
 
     hasCollided(otherObject, collisionPoint, normal){
         this.notifyCollisionListeners(otherObject, collisionPoint, normal);
-        //console.log(otherObject);
     }
 }
 

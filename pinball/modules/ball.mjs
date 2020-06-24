@@ -26,7 +26,7 @@ export class Ball {
         this.elem.style.transform = 'translate('+this.x+'px,'+this.y+'px)';
  
         //Append DOM-Element
-        this.table.table1.appendChild(this.elem);
+        this.table.appendChild(this.elem);
 
         this.circle = new Circle(pos, r, this.bounce, this.elem);
 

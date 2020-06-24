@@ -1,5 +1,4 @@
 'use strict'
-import Table from './modules/table.mjs';
 import Bumper from './modules/bumper.mjs';
 import { Ball } from './modules/ball.mjs';
 import { CollisionDetection } from './collisionDetection.mjs';
@@ -11,7 +10,7 @@ import { StartStopGame } from './modules/startStopGame.mjs';
 
 // Setup attributes
 let lives = 2;
-const table = new Table(1);
+const table = document.querySelector('.table');
 const playfield = document.querySelector('.playfield');
 let movePlayfield = 0;
 document.addEventListener("down", onkeydown, false);
@@ -99,13 +98,11 @@ onkeydown = onkeyup = function(e){
     } else
     // w
 	if ((e.keyCode=="87")&&(e.type=='keydown'))  {
-        console.log ("w down");
         movePlayfield += 100;
         playfield.style.transform = "translateY(" + movePlayfield + "px)";
     } else
     // s
 	if ((e.keyCode=="83")&&(e.type=='keydown'))  {
-        console.log ("s down");
         movePlayfield -= 100;
         playfield.style.transform = "translateY(" + movePlayfield + "px)";
     }   

@@ -14,7 +14,7 @@ export class FlipperLine {
         this.line.style.transformOrigin = '0% 50%';
 
         //Append DOM-Element
-        tableObj.table1.appendChild(this.line);
+        tableObj.appendChild(this.line);
     }
 
 

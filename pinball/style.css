@@ -1,18 +1,26 @@
 
 
+.playfield {
+    z-index: 1;
+    position: absolute;
+}
 
-
-/* .playfield {
-    transform: translateX(50%);
-} */
+.bg {
+    /* width: 100%; */
+    height: 1800px;
+    /* object-fit: cover; */
+}
 
 .table {
-    width: 400px; 
-    height: 800px;
+    position: absolute;
+    width: 1080px; 
+    height: 1800px;
     top: 0px;
     left: 0px;
+    z-index: 2;
+    transform: translateX(400px);
     /* background: url('assets/pinball-table.jpg') -10px -10px; */
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; */
     /* transform: scale(2); */
 }
 
@@ -31,37 +39,23 @@
     box-shadow: inset 6px 6px 12px #d49365, inset -6px -6px 12px #ffc789;
 }
 
-.flipper{
+/* .flipper{
     position: absolute;
     background: #f9ad77;
     width: 140px;
     height: 50px;
     background-size: 100px 40px;
     transition: all 0.1s ease-out;
-}
+} */
 
 .flipper-left{
-    top: 500px;
-    left: 120px;
-    clip-path: polygon(80% 40%, 80% 60%, 0 80%, 0 20%);
-    transform: rotateZ(45deg);
     transform-origin: 0%;
 }
 
-.flipper-left.triggered{
-    transform: rotateZ(0deg);
-}
+
 
 .flipper-right{
-    top: 500px;
-    left: 240px;
-    clip-path: polygon(80% 80%, 80% 20%, 0 40%, 0 60%);
-    transform: rotateZ(-45deg);
-    transform-origin: 78%;
-}
-
-.flipper-right.triggered{
-    transform: rotateZ(0deg);
+    transform-origin: 100%;
 }
 
 .bumper {
@@ -70,14 +64,13 @@
     
 }
 
-
 .b1 {
     top: 200px;
     left: 300px;
     height: 50px;
     width: 50px;
     background-color: rgb(207, 27, 183);
-    animation-play-state: paused;
+    animation-play-state: running;
     animation-duration: 0.1s;
     animation-iteration-count: 5;
     animation-name: animation1;
@@ -90,14 +83,11 @@
 .b2 {
     border-radius: 50%;
     top: 400px;
-    left: 50px;
+    left: 90px;
     height: 100px;
     width: 100px;
     background-color: rgb(49, 216, 238);
-    animation-play-state: paused;
-    animation-duration: 0.1s;
-    animation-iteration-count: 5;
-    animation-name: animation2;
+    animation: animation2 0.1s infinite;
 
 }
 @keyframes animation2 {
@@ -122,22 +112,121 @@
 .wall {
     position: absolute;
     transform-origin: center left;
+    background-color: rgb(255, 255, 255);
+    animation: neon1 1.5s cubic-bezier(0.52, -0.29, 0.24, 1.72) infinite;
 }
 
+@keyframes neon1 {
+    0% { box-shadow: 0px 0px 20px 0px rgba(255,17,119,1); }
+    50% { box-shadow: 0px 0px 20px 10px rgba(255,17,119,1); }
+    100% { box-shadow: 0px 0px 20px 0px rgba(255,17,119,1); }
+  }
+
 .w1 {
-    left: 100px;
-    top: 690px;
+    left: 20px;
+    top: 1200px;
     height: 10px;
-    width: 200px;
-    transform: rotateZ(-30deg);
-    background-color: darkcyan;
+    width: 1200px;
+    transform: rotateZ(-90deg);
 }
 
 .w2 {
-    left: 70px;
-    top: 200px;
+    left: 20px;
+    top: 1200px;
     height: 10px;
-    width: 100px;
-    transform: rotateZ(-30deg);
-    background-color: hotpink;
+    width: 500px;
+    transform: rotateZ(45deg);
+}
+
+.w3 {
+    left: 980px;
+    top: 1200px;
+    height: 10px;
+    width: 1080px;
+    transform: rotateZ(-90deg);
+}
+
+.w4 {
+    left: 980px;
+    top: 1200px;
+    height: 10px;
+    width: 500px;
+    transform: rotateZ(135deg);
+}
+
+.w5 {
+    left: 20px;
+    top: 5px;
+    height: 10px;
+    width: 960px;
+    transform: rotateZ(0deg);
+}
+
+.w6 {
+    left: 1080px;
+    top: 90px;
+    height: 10px;
+    width: 1110px;
+    transform: rotateZ(90deg);
+}
+
+.w7 {
+    left: 980px;
+    top: 5px;
+    height: 10px;
+    width: 135px;
+    transform: rotateZ(40deg);
+}
+
+.start {
+    position: absolute;
+    transform-origin: center left;
+    left: 1010px;
+    top: 1190px;
+    border-radius: 20%;
+    height: 10px;
+    width: 40px;
+    transform: rotateZ(0deg);
+    animation-duration: 0.5s;
+    animation-name: start;
+    animation-iteration-count: infinite;
+    background-color: rgb(255, 46, 9);
+
+}
+@keyframes start {
+    0% { box-shadow: 0px 0px 5px 5px rgb(80, 21, 7); }
+    60% { box-shadow: 0px 0px 20px 20px rgb(238, 173, 34); }
+    100% { box-shadow: 0px 0px 5px 5px rgb(80, 21, 7); }
+}
+
+/* .line {
+    position: absolute;
+    transform-origin: 0% 50%;
+}
+
+.l1 {
+    left: 50px;
+    top: 100px;
+    height: 
+} */
+
+.line {
+    height: 0px;
+    box-shadow: 0 0 4px 2px #46057a; 
+}
+
+.l1 {
+    box-shadow: 3px aquamarine;
+}
+
+/* .invisible{
+    display: none;
+} */
+
+.test {
+    background-color: darkmagenta;
+    position: absolute;
+    left: 100px;
+    top: 690px;
+    width: 50px;
 }

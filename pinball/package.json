@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/seimon-m/DEWEBMO.F2001#readme",
   "dependencies": {
+    "simple-parallax-js": "^5.5.1",
     "victor": "^1.1.0"
-  }
+  },
+  "devDependencies": {}
 }

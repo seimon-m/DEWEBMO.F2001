@@ -1,4 +1,5 @@
 .DS_Store
-node_modules/
+pinball/node_modules
 assets/
 server/node_modules
+pinball/assets

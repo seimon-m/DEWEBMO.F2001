@@ -1,15 +1,16 @@
 import { Circle } from './collisionShapes/circle.mjs';
 
 export class Ball {
-    constructor(pos, r, tableObj){
+    constructor(pos, r, tableObj, game){
         this.className = 'ball';
         this.newpos = pos;
-        this.bounce = 0.2;
+        this.bounce = 0.3;
         this.r = r;
         this.gravityOn = true;
         this.velocity = new Victor(0, 0);
         this.gravity = new Victor(0, 0.05);
         this.table = tableObj;
+        this.game = game;
         
         
         // Create DOM-Element
@@ -57,6 +58,13 @@ export class Ball {
     }
 
     updatePhysics() {
+
+        // Abbruch prüfen
+        if(this.newpos.y > 2000) {
+            console.log("Started new Game");
+            this.game.checkLives(this);
+        }
+
         // Neue Position
         if(this.gravityOn) {
             this.velocity = this.velocity.add(this.gravity);

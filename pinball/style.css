@@ -2,17 +2,19 @@
 
 
 
-/* .playfield {
-    transform: translateX(50%);
-} */
+.playfield {
+    background-image: url(/assets/background.png);
+    background-size: cover;
+}
 
 .table {
-    width: 1000px; 
+    width: 1080px; 
     height: 1800px;
     top: 0px;
     left: 0px;
+    transform: translateX(400px);
     /* background: url('assets/pinball-table.jpg') -10px -10px; */
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; */
     /* transform: scale(2); */
 }
 
@@ -62,7 +64,7 @@
     height: 50px;
     width: 50px;
     background-color: rgb(207, 27, 183);
-    animation-play-state: paused;
+    animation-play-state: running;
     animation-duration: 0.1s;
     animation-iteration-count: 5;
     animation-name: animation1;
@@ -75,11 +77,11 @@
 .b2 {
     border-radius: 50%;
     top: 400px;
-    left: 50px;
+    left: 90px;
     height: 100px;
     width: 100px;
     background-color: rgb(49, 216, 238);
-    animation-play-state: paused;
+    animation-play-state: running;
     animation-duration: 0.1s;
     animation-iteration-count: 5;
     animation-name: animation2;
@@ -107,24 +109,82 @@
 .wall {
     position: absolute;
     transform-origin: center left;
-}
-
-.w1 {
-    left: 100px;
-    top: 690px;
-    height: 10px;
-    width: 200px;
-    transform: rotateZ(-30deg);
     background-color: darkcyan;
 }
 
-.w2 {
-    left: 70px;
-    top: 200px;
+.w1 {
+    left: 20px;
+    top: 1200px;
     height: 10px;
-    width: 100px;
-    transform: rotateZ(-30deg);
-    background-color: hotpink;
+    width: 1200px;
+    transform: rotateZ(-90deg);
+}
+
+.w2 {
+    left: 20px;
+    top: 1200px;
+    height: 10px;
+    width: 500px;
+    transform: rotateZ(45deg);
+}
+
+.w3 {
+    left: 980px;
+    top: 1200px;
+    height: 10px;
+    width: 1080px;
+    transform: rotateZ(-90deg);
+}
+
+.w4 {
+    left: 980px;
+    top: 1200px;
+    height: 10px;
+    width: 500px;
+    transform: rotateZ(135deg);
+}
+
+.w5 {
+    left: 20px;
+    top: 5px;
+    height: 10px;
+    width: 960px;
+    transform: rotateZ(0deg);
+}
+
+.w6 {
+    left: 1080px;
+    top: 90px;
+    height: 10px;
+    width: 1110px;
+    transform: rotateZ(90deg);
+}
+
+.w7 {
+    left: 980px;
+    top: 5px;
+    height: 10px;
+    width: 135px;
+    transform: rotateZ(40deg);
+}
+
+.start {
+    left: 1010px;
+    top: 1190px;
+    /* border-radius: 10%; */
+    height: 10px;
+    width: 40px;
+    transform: rotateZ(0deg);
+    animation-duration: 0.5s;
+    animation-name: start;
+    animation-iteration-count: infinite;
+    background-color: rgb(255, 46, 9);
+
+}
+@keyframes start {
+    0% { box-shadow: 0px 0px 5px 5px rgb(80, 21, 7); }
+    60% { box-shadow: 0px 0px 20px 20px rgb(238, 173, 34); }
+    100% { box-shadow: 0px 0px 5px 5px rgb(80, 21, 7); }
 }
 
 /* .line {
@@ -150,3 +210,11 @@
 /* .invisible{
     display: none;
 } */
+
+.test {
+    background-color: darkmagenta;
+    position: absolute;
+    left: 100px;
+    top: 690px;
+    width: 50px;
+}

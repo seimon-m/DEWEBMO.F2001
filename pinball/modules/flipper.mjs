@@ -1,4 +1,4 @@
-import { Line } from './line.mjs';
+import { FlipperLine } from './flipperLine.mjs';
 
 export class Flipper{
 
@@ -16,7 +16,7 @@ export class Flipper{
         this.isKicking = false;
         this._currentTime = 0;
 
-        this._line = new Line(tableObj, pos, pos, 'invisible');
+        this._line = new FlipperLine(tableObj, pos, pos, 'invisible');
         this.updateLine();
 
         this._collisionShape = this._line.getCollisionShape();

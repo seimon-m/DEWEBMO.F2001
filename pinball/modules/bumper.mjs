@@ -28,18 +28,5 @@ class Bumper {
     getCollisionShape() {
         return this.circle.getCollisionShape();
     }
-
-    // blink(){
-
-    //     this._animation = this._circle.elem.animate([   
-    //         {boxShadow: '0 0 0 0 #B4AAA7'},
-    //         {boxShadow: '0 0 50px 0.1px #B4AAA7'},
-    //     ], 
-    //     {duration: 200,  iterations: 1}); 
-
-    // }
-
-
-    
 }
 export default Bumper;

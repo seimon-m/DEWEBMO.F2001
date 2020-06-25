@@ -29,9 +29,6 @@ export class Line {
 
 
     setCoordinates(a, b) {
-
-        console.log(a)
-        console.log(b)
         this.a = a;
         this.b = b;
 

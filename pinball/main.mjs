@@ -10,6 +10,7 @@ import { StartStopGame } from './modules/startStopGame.mjs';
 
 // Setup attributes
 let lives = 2;
+let score = 0;
 const table = document.querySelector('.table');
 const playfield = document.querySelector('.playfield');
 let movePlayfield = 0;
@@ -28,9 +29,11 @@ function setup() {
     let ball = new Ball(new Victor(1030, 600), 20, table, game);
     ball.getCollisionShape().addCollisionListener((object, collisionPoint, normal) => {
         object.handleBallCollision(ball, collisionPoint, normal);
+        // Update Score
         if (object instanceof Circle) {
-            const points = Math.min(Math.ceil(ball.velocity.length() * 0.2), 5);
-            // Score
+            const points = ball.velocity.clone().length()
+            score += points;
+            console.log(score);
         }
     });
     collisonDetection.addDynamicObject(ball);
@@ -53,10 +56,13 @@ function setup() {
     collisonDetection.addStaticObject(rightFlipper);
 
 
-    // Elementerzeugung
+    /* Elementerzeugung */
+    // Bumper
     const bumper1 = new Bumper('.b1', 4);
     const bumper2 = new Bumper('.b2', 2);
     const bumper3 = new Bumper('.b3', 3);
+
+    // Wände
     const wall1 = new Line('.w1', 2);
     const wall2 = new Line('.w2', 2);
     const wall3 = new Line('.w3', 2);
@@ -64,9 +70,21 @@ function setup() {
     const wall5 = new Line('.w5', 2);
     const wall6 = new Line('.w6', 2);
     const wall7 = new Line('.w7', 3);
-    const starter = new Line('.start', 20);
+    const starter = new Line('.start', 15);
 
-    const allCollisionObjects = [bumper1, bumper2, bumper3, wall1, wall2, wall3, wall4, wall5, wall6, wall7, starter];
+    // Stern
+    const s1 = new Line('.s1', 10);
+    const s2 = new Line('.s1', 10);
+    const s3 = new Line('.s1', 10);
+    const s4 = new Line('.s1', 10);
+    const s5 = new Line('.s1', 10);
+    const s6 = new Line('.s1', 10);
+    const s7 = new Line('.s1', 10);
+    const s8 = new Line('.s1', 10);
+    const s9 = new Line('.s1', 10);
+    const s10 = new Line('.s1',10);
+
+    const allCollisionObjects = [bumper1, bumper2, bumper3, wall1, wall2, wall3, wall4, wall5, wall6, wall7, starter, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
 
     allCollisionObjects.forEach(obj => collisonDetection.addStaticObject(obj));
 
@@ -85,10 +103,10 @@ function setup() {
 }
 
 // Parallax
-let bg = document.getElementsByClassName('bg');
-new simpleParallax(bg, {
-    scale: 1.3
-});
+// let bg = document.getElementsByClassName('bg');
+// new simpleParallax(bg, {
+//     scale: 1.3
+// });
 
 /* Tastaturabfrage */
 onkeydown = onkeyup = function(e){

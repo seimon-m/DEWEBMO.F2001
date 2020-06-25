@@ -61,7 +61,6 @@ export class Ball {
 
         // Abbruch prüfen
         if(this.newpos.y > 2000) {
-            console.log("Started new Game");
             this.game.checkLives(this);
         }
 

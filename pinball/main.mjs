@@ -7,15 +7,16 @@ import { LeftFlipper } from './modules/flipper.mjs';
 import { RightFlipper } from './modules/flipper.mjs';
 import { Line } from './modules/line.mjs';
 import { StartStopGame } from './modules/startStopGame.mjs';
+import { Score } from './modules/score.mjs';
 
 // Setup attributes
 let lives = 2;
-let score = 0;
 const table = document.querySelector('.table');
 const playfield = document.querySelector('.playfield');
 let movePlayfield = 0;
 document.addEventListener("down", onkeydown, false);
 document.addEventListener("up", onkeyup, false);
+let score = new Score(table);
 
 
 setup();
@@ -23,7 +24,7 @@ setup();
 
 function setup() {
     const collisonDetection = new CollisionDetection();
-    const game = new StartStopGame(lives);
+    const game = new StartStopGame(lives, score);
 
     // Setup Ball and Collision Detection and Reflection
     let ball = new Ball(new Victor(1030, 600), 20, table, game);
@@ -32,8 +33,8 @@ function setup() {
         // Update Score
         if (object instanceof Circle) {
             const points = ball.velocity.clone().length()
-            score += points;
-            console.log(score);
+            score.updateScore(points);
+            console.log(score.getScore());
         }
     });
     collisonDetection.addDynamicObject(ball);
@@ -99,6 +100,7 @@ function setup() {
     window.requestAnimationFrame(scroll);
 
     // Start Game
+    game.askName();
     game.startGame(ball);
 }
 

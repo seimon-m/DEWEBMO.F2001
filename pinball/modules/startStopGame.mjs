@@ -1,15 +1,23 @@
 
 
 export class StartStopGame {
-    constructor(lives) {
+    constructor(lives, scoreObj) {
         this.lives = lives;
+        this.score = scoreObj;
+        this.highscoreSaved = false;
+    }
+
+    askName() {
+        let name = prompt('Please enter your name:', 'Hedgehog');
+        this.score.setName(name);
     }
 
     checkLives(ball) {
         this.ball = ball;
         if (this.lives > 0) {
             setTimeout( this.startGame.bind(this), 1000, ball);
-        } else {
+        } else if (!this.highscoreSaved) {
+            this.highscoreSaved = true;
             this.gameOver();
         }
     }
@@ -21,10 +29,10 @@ export class StartStopGame {
     }
 
     gameOver() {
+        this.score.saveScore();
+        const highscore = this.score.getScore();
 
-        // setTimeout(() => {
-        //     window.alert('Game Over! Do you want to restart the game?');
-        // }, 1000)
-        // window.location.reload();
+        window.alert(`Game Over! Your score is ${highscore}. \nDo you want to restart the game?`);
+        window.location.reload();
     }
 }

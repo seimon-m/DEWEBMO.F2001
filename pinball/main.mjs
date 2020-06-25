@@ -6,6 +6,7 @@ import { Circle } from './modules/collisionShapes/circle.mjs';
 import { LeftFlipper } from './modules/flipper.mjs';
 import { RightFlipper } from './modules/flipper.mjs';
 import { Line } from './modules/line.mjs';
+import { StarterLine } from './modules/starterline.mjs';
 import { StartStopGame } from './modules/startStopGame.mjs';
 import { Score } from './modules/score.mjs';
 
@@ -71,7 +72,7 @@ function setup() {
     const wall5 = new Line('.w5', 2);
     const wall6 = new Line('.w6', 2);
     const wall7 = new Line('.w7', 3);
-    const starter = new Line('.start', 15);
+    const starter = new StarterLine('.start', 15);
 
     // Stern
     const s1 = new Line('.s1', 10);
@@ -98,6 +99,14 @@ function setup() {
         window.requestAnimationFrame(scroll);
     }
     window.requestAnimationFrame(scroll);
+
+    // Background sound
+    let sound = new Howl({
+        src: ['assets/background.wav'],
+        volume: 1,
+        loop: true
+      });
+    sound.play();
 
     // Start Game
     game.askName();

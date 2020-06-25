@@ -1,6 +1,6 @@
 import { CollisionLine } from "../collisionDetection.mjs";
 
-export class Line {
+export class StarterLine {
     constructor(className, bounce) {
         this.bounce = bounce;
         this.wall = document.querySelector(className);
@@ -25,11 +25,6 @@ export class Line {
 
         this.collisionShape = new CollisionLine(this, this.p1, this.p2);
         this.setCoordinates(this.p1, this.p2);
-
-        this.sound = new Howl({
-            src: ['assets/wall.m4a'],
-            volume: 0.3
-          });
 
     }
 
@@ -67,7 +62,11 @@ export class Line {
 
     handleBallCollision(ball, collisionPoint, normal) {
         ball.reflect(collisionPoint, normal, this.bounce);
-        this.sound.play();
+        let sound = new Howl({
+            src: ['assets/startBall.wav'],
+            volume: 1.0
+          });
+        sound.play();
     }
 
     getLineVector() {

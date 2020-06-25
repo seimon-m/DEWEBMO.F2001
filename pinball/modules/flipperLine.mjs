@@ -57,6 +57,11 @@ export class FlipperLine {
 
     handleBallCollision(ball, collisionPoint, normal) {
         ball.reflect(collisionPoint, normal, this.bounce);
+        let sound = new Howl({
+            src: ['assets/flipper.wav'],
+            volume: 0.5
+          });
+        sound.play();
     }
 
     getLineVector() {

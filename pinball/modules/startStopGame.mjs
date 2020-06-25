@@ -5,6 +5,10 @@ export class StartStopGame {
         this.lives = lives;
         this.score = scoreObj;
         this.highscoreSaved = false;
+
+        this.sound = new Howl({
+            src: ['assets/fail.wav'],
+        });
     }
 
     askName() {
@@ -29,6 +33,7 @@ export class StartStopGame {
     }
 
     gameOver() {
+        this.sound.play();
         this.score.saveScore();
         const highscore = this.score.getScore();
 

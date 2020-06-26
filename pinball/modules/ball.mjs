@@ -11,6 +11,7 @@ export class Ball {
         this.gravity = new Victor(0, 0.05);
         this.table = tableObj;
         this.game = game;
+        this.gameFinished = false;
         
         
         // Create DOM-Element
@@ -36,7 +37,7 @@ export class Ball {
         this.keyframes = [];
 
         // Animation Loop
-        window.setInterval(this.updatePhysics.bind(this), this.ms)
+        this.intervalID = window.setInterval(this.updatePhysics.bind(this), this.ms)
     }
 
     reflect(collisionPoint, normal, bounce) {
@@ -61,7 +62,14 @@ export class Ball {
 
         // Abbruch prüfen
         if(this.newpos.y > 2000) {
-            this.game.checkLives(this);
+            console.log(this.intervalID)
+            const id = this.intervalID;
+            this.game.checkLives(this, () => clearInterval(id));
+        }
+
+        if (this.gameFinished) {
+            console.log("Game finished")
+            return;
         }
 
         // Neue Position

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleHS.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Highscore</h1>
+    <div id="list"></div>
+    <button id="restartButton">Restart game</button>
+</body>
+<script>
+    const listDiv = document.getElementById('list');
+    const restartButton = document.getElementById('restartButton');
+    restartButton.addEventListener('click', redirect);
+    let renderOnce = false;
+
+    if(!renderOnce) {
+        getList();
+        renderOnce = true;
+    }
+
+    async function getList() {
+        const url = "http://127.0.0.1:8080/?";
+        try {
+            const response = await fetch(url);
+            const resJson = await response.json();
+            listDiv.innerHTML = renderHighscoreList(resJson);
+        }
+        catch (err) {
+            console.log('get list fetch failed: ' + err);
+        }
+    }
+
+    function renderHighscoreList(hs) {
+        let out ="<ol>";
+        hs.forEach((s) => out += "<li>" + s.score + " " + s.name + "</li>");
+        out += "</ol>";
+        return out;
+    }
+
+    function redirect() {
+        console.log('redirecting back...')
+        window.location.href = 'index.html';
+    }
+</script>
+</html>

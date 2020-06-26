@@ -4,7 +4,6 @@ export class StartStopGame {
     constructor(lives, scoreObj) {
         this.lives = lives;
         this.score = scoreObj;
-        this.highscoreSaved = false;
 
         this.sound = new Howl({
             src: ['assets/fail.wav'],
@@ -16,13 +15,15 @@ export class StartStopGame {
         this.score.setName(name);
     }
 
-    checkLives(ball) {
+    checkLives(ball, abortGameLoop) {
         this.ball = ball;
         if (this.lives > 0) {
             setTimeout( this.startGame.bind(this), 1000, ball);
-        } else if (!this.highscoreSaved) {
-            this.highscoreSaved = true;
-            this.gameOver();
+        } else {
+            console.log("ball: "+ ball)
+            console.log("func: "+ abortGameLoop)
+            abortGameLoop();
+            this.gameOver(ball);
         }
     }
 
@@ -32,12 +33,15 @@ export class StartStopGame {
         this.lives--;
     }
 
-    gameOver() {
+    gameOver(ball) {
+        ball.gameFinished = true;
         this.sound.play();
         this.score.saveScore();
         const highscore = this.score.getScore();
 
-        window.alert(`Game Over! Your score is ${highscore}. \nDo you want to restart the game?`);
-        window.location.reload();
+        // window.alert(`Game Over! Your score is ${highscore}. \nDo you want to restart the game?`);
+        console.log("redirecting")
+        window.location.href = 'highscore.html';
+        // window.location.reload();
     }
 }

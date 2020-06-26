@@ -3,3 +3,5 @@ pinball/node_modules
 assets/
 server/node_modules
 pinball/assets
+pinball/.DS_Store
+pinball/assets/.DS_Store

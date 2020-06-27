@@ -3,7 +3,7 @@ import { CollisionLine } from "../collisionDetection.mjs";
 export class FlipperLine {
     constructor(tableObj, a, b, cssClass) {
         this.collisionShape = new CollisionLine(this, a, b);
-        this.bounce = 1.5;
+        this.bounce = 1;
 
         // Create DOM-Element
         this.line = document.createElement('DIV');
@@ -59,7 +59,7 @@ export class FlipperLine {
         ball.reflect(collisionPoint, normal, this.bounce);
         let sound = new Howl({
             src: ['assets/flipper.wav'],
-            volume: 0.5
+            volume: 0.2
           });
         sound.play();
     }

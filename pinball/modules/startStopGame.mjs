@@ -7,6 +7,7 @@ export class StartStopGame {
 
         this.sound = new Howl({
             src: ['assets/fail.wav'],
+            volume: 0.5
         });
     }
 
@@ -39,9 +40,8 @@ export class StartStopGame {
         this.score.saveScore();
         const highscore = this.score.getScore();
 
-        // window.alert(`Game Over! Your score is ${highscore}. \nDo you want to restart the game?`);
-        console.log("redirecting")
         window.location.href = 'highscore.html';
-        // window.location.reload();
+        window.alert(`Game Over! Your score is ${highscore}!`);
+        console.log("redirecting")
     }
 }

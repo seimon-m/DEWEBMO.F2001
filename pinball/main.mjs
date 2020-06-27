@@ -18,9 +18,9 @@ let movePlayfield = 0;
 document.addEventListener("down", onkeydown, false);
 document.addEventListener("up", onkeyup, false);
 let score = new Score(table);
+Howler.volume(0.08);
 
-
-setup();
+window.addEventListener("load", setup);
 
 
 function setup() {
@@ -34,7 +34,7 @@ function setup() {
         // Update Score
         if (object instanceof Circle) {
             const points = ball.velocity.clone().length()
-            score.updateScore(points);
+            score.updateScore(Math.round(points));
             console.log(score.getScore());
         }
     });
@@ -61,8 +61,14 @@ function setup() {
     /* Elementerzeugung */
     // Bumper
     const bumper1 = new Bumper('.b1', 4);
-    const bumper2 = new Bumper('.b2', 2);
-    const bumper3 = new Bumper('.b3', 3);
+    const bumper2 = new Bumper('.b2', 5);
+    const bumper3 = new Bumper('.b3', 4);
+    const bumper4 = new Bumper('.b4', 2);
+    const bumper5 = new Bumper('.b5', 2);
+    const bumper6 = new Bumper('.b6', 2);
+    const bumper7 = new Bumper('.b7', 6);
+    const bumper8 = new Bumper('.b8', 4);
+    const bumper9 = new Bumper('.b9', 5);
 
     // Wände
     const wall1 = new Line('.w1', 2);
@@ -72,7 +78,7 @@ function setup() {
     const wall5 = new Line('.w5', 2);
     const wall6 = new Line('.w6', 2);
     const wall7 = new Line('.w7', 3);
-    const starter = new StarterLine('.start', 15);
+    const starter = new StarterLine('.start', 20);
 
     // Stern
     const s1 = new Line('.s1', 10);
@@ -86,7 +92,11 @@ function setup() {
     const s9 = new Line('.s1', 10);
     const s10 = new Line('.s1',10);
 
-    const allCollisionObjects = [bumper1, bumper2, bumper3, wall1, wall2, wall3, wall4, wall5, wall6, wall7, starter, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
+    // Linien
+    const l1 = new Line('.l1', 3);
+    const l2 = new Line('.l2', 3);
+
+    const allCollisionObjects = [bumper1, bumper2, bumper3, bumper4, bumper5, bumper6, bumper7, bumper8, bumper9, wall1, wall2, wall3, wall4, wall5, wall6, wall7, starter, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, l1, l2];
 
     allCollisionObjects.forEach(obj => collisonDetection.addStaticObject(obj));
 
@@ -103,7 +113,7 @@ function setup() {
     // Background sound
     let sound = new Howl({
         src: ['assets/background.wav'],
-        volume: 1,
+        volume: 5,
         loop: true
       });
     sound.play();
@@ -114,10 +124,10 @@ function setup() {
 }
 
 // Parallax
-// let bg = document.getElementsByClassName('bg');
-// new simpleParallax(bg, {
-//     scale: 1.3
-// });
+let bg = document.getElementsByClassName('bg');
+new simpleParallax(bg, {
+    scale: 1.2
+});
 
 /* Tastaturabfrage */
 onkeydown = onkeyup = function(e){

@@ -8,7 +8,7 @@ export class Ball {
         this.r = r;
         this.gravityOn = true;
         this.velocity = new Victor(0, 0);
-        this.gravity = new Victor(0, 0.05);
+        this.gravity = new Victor(0, 0.1);
         this.table = tableObj;
         this.game = game;
         this.gameFinished = false;
@@ -32,7 +32,7 @@ export class Ball {
         this.circle = new Circle(pos, r, this.bounce, this.elem);
 
         // Initialize Animation
-        this.ms = 8;
+        this.ms = 9;
         this.animation = this.elem.animate({},{duration: this.ms});
         this.keyframes = [];
 
@@ -48,6 +48,16 @@ export class Ball {
 
         const variance = Math.random() / 50 + 1; // 0 - 2% random Effekt
         this.velocity = reflect.multiplyScalar(this.bounce * bounce * variance);
+
+        const maxSpeed = 30;
+        let xSpeed = this.velocity.x;
+        let ySpeed = this.velocity.y;
+        xSpeed = Math.min(maxSpeed, xSpeed);
+        ySpeed = Math.min(maxSpeed, ySpeed + this.gravity.y);
+        xSpeed = Math.max(-maxSpeed, xSpeed);
+        ySpeed = Math.max(-maxSpeed, ySpeed);
+
+        this.velocity = new Victor(xSpeed, ySpeed);
 
         // Neue Position
         this.newpos = collisionPoint.add(this.velocity);

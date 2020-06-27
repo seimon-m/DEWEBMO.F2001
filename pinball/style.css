@@ -52,10 +52,10 @@
 }
 
 .b1 {
-    top: 285px;
-    left: 363px;
-    height: 390px;
-    width: 390px;
+    top: 190px;
+    left: 240px;
+    height: 500px;
+    width: 500px;
     background-color: rgb(216, 19, 127);
     animation: animation1 5s infinite;
 }
@@ -67,27 +67,82 @@
 
 .b2 {
     border-radius: 50%;
-    top: 600px;
-    left: 90px;
+    top: 700px;
+    left: 700px;
     height: 100px;
     width: 100px;
     background: linear-gradient(90deg, rgb(221, 5, 34) 0%, rgb(180, 52, 127) 70%, rgb(228, 4, 228) 100%);
     animation: animation2 0.1s infinite;
 }
+
+.b3 {
+    top: 200px;
+    left: 130px;
+    height: 50px;
+    width: 50px;
+    background: linear-gradient(90deg, rgb(221, 5, 34) 0%, rgb(180, 52, 127) 70%, rgb(228, 4, 228) 100%);
+    animation: animation2 0.1s infinite;
+}
 @keyframes animation2 {
-    from { box-shadow: 0px 0px 0px 0px rgb(78, 5, 60); }
+    from { box-shadow: 0px 0px 0px 0px rgb(179, 23, 82); }
     to { 
-        box-shadow: 0px 0px 20px 20px rgb(78, 5, 60); 
+        box-shadow: 0px 0px 20px 20px rgb(179, 23, 82); 
         transition: rotate 1s;
     }
 }
 
-.b3 {
-    top: 350px;
-    left: 250px;
-    height: 50px;
-    width: 50px;
-    background: repeating-radial-gradient(rgb(78, 24, 58), rgb(99, 2, 7) 2px, rgb(124, 36, 226) 5px, rgb(121, 11, 75) 10px);
+.b4 {
+    border-radius: 50%;
+    top: 835px;
+    left: 230px;
+    height: 15px;
+    width: 15px;
+    background: radial-gradient(cyan 0%, transparent 50%, rgb(230, 66, 161) 80%);
+}
+
+.b5 {
+    border-radius: 50%;
+    top: 885px;
+    left: 310px;
+    height: 15px;
+    width: 15px;
+    background: radial-gradient(cyan 0%, transparent 50%, rgb(230, 66, 161) 80%);
+}
+
+.b6 {
+    border-radius: 50%;
+    top: 935px;
+    left: 390px;
+    height: 15px;
+    width: 15px;
+    background: radial-gradient(cyan 0%, transparent 50%, rgb(230, 66, 161) 80%);
+}
+
+.b7 {
+    border-radius: 50%;
+    top: 880px;
+    left: 800px;
+    height: 60px;
+    width: 60px;
+    background: radial-gradient(cyan 0%, transparent 40%, rgb(36, 99, 236) 70%);
+}
+
+.b8 {
+    border-radius: 50%;
+    top: 580px;
+    left: 100px;
+    height: 100px;
+    width: 100px;
+    background: radial-gradient(cyan 0%, transparent 40%, rgb(36, 99, 236) 80%);
+}
+
+.b9 {
+    border-radius: 50%;
+    top: 1100px;
+    left: 200px;
+    height: 40px;
+    width: 40px;
+    background: radial-gradient(cyan 0%, transparent 40%, rgb(36, 99, 236) 80%);
 }
 
 .wall {
@@ -246,4 +301,24 @@
     position: absolute;
     z-index: 10;
     background-color: darkseagreen;
+}
+
+.line {
+    position: absolute;
+    width: 300px;
+    height: 1px;
+    left: 200px;
+    transform: rotateZ(30deg);
+    background-color: rgb(67, 8, 145);
+    box-shadow: 0px 0px 5px 5px #a73bff; 
+    transform-origin: center left;
+}
+
+.l1 {
+    top: 750px;
+}
+
+.l2 {
+    top: 900px;
+    left: 200px;
 }

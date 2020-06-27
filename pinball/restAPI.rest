@@ -1,1 +1,7 @@
+# Highscoreliste lesen
 GET http://127.0.0.1:8080/?
+
+###
+
+# Neuen Highscore schreiben und Liste lesen
+GET http://127.0.0.1:8080/?score=100&name=restTest

@@ -10,6 +10,7 @@ export class Circle {
 
         this.sound = new Howl({
             src: ['assets/bumper.wav'],
+            volume: 0.5
         });
     }
 

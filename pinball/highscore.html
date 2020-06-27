@@ -49,5 +49,9 @@
         console.log('redirecting back...')
         window.location.href = 'index.html';
     }
+
+    function Sleep(milliseconds) {
+        return new Promise(resolve => setTimeout(resolve, milliseconds));
+    }
 </script>
 </html>

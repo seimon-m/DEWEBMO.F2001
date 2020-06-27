@@ -1,5 +1,7 @@
 {
     "editor.fontSize": 14,
     "prettier.tabWidth": 4,
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+    "liveServer.settings.ignoreFiles":["**"],
 }

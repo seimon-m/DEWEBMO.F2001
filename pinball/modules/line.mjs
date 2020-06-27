@@ -28,7 +28,7 @@ export class Line {
 
         this.sound = new Howl({
             src: ['assets/wall.m4a'],
-            volume: 0.3
+            volume: 0.2
           });
 
     }

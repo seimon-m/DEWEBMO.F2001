@@ -19,7 +19,6 @@ app.get('/', function (req, res) {
             const newScore = Number(req.query.score);
             const newName = req.query.name;
             let insertPos = 9999; // Grösser als effektives Array, deshalb setzen auf letzte Position 
-            // let insertPos = highScores.length() - 1;
 
             for (let i=0; i<highScores.length; i++){
                 if (newScore >= highScores[i].score){

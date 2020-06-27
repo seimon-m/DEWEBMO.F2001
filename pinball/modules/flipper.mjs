@@ -20,7 +20,7 @@ export class Flipper{
         this.updateLine();
 
         this._collisionShape = this._line.getCollisionShape();
-        this._collisionShape.bounciness = 0.7;
+        this._collisionShape.bounciness = 0.5;
 
 
         // Create DOM-Element

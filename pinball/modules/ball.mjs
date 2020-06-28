@@ -8,7 +8,7 @@ export class Ball {
         this.r = r;
         this.gravityOn = true;
         this.velocity = new Victor(0, 0);
-        this.gravity = new Victor(0, 0.2);
+        this.gravity = new Victor(0, 0.12);
         this.table = tableObj;
         this.game = game;
         this.gameFinished = false;

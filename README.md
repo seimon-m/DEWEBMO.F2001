@@ -30,7 +30,7 @@ The project is optimized and tested for Brave Browser (Chrome).
 
 ## Game controls
 
-Left flipper - a
-Right flipper - d
-Toggle fullscreen mode - Left mouseclick
+- Left flipper - a
+- Right flipper - d
+- Toggle fullscreen mode - Left mouseclick
 

@@ -14,11 +14,12 @@ import { Score } from './modules/score.mjs';
 let lives = 2;
 const table = document.querySelector('.table');
 const playfield = document.querySelector('.playfield');
+let scrollDepth = 150; // Max Autoscrolling tiefe
 let movePlayfield = 0;
 document.addEventListener("down", onkeydown, false);
 document.addEventListener("up", onkeyup, false);
 let score = new Score(table);
-Howler.volume(0.08);
+Howler.volume(0.1);
 
 window.addEventListener("load", setup);
 
@@ -103,7 +104,7 @@ function setup() {
     // Scrolling
     function scroll() {
         window.scroll({
-            top: Math.min(ball.getPos().y - 400, window.innerHeight - 150),
+            top: Math.min(ball.getPos().y - 200, window.innerHeight - scrollDepth),
             // behavior: 'smooth'
         });
         window.requestAnimationFrame(scroll);
@@ -128,6 +129,25 @@ let bg = document.getElementsByClassName('bg');
 new simpleParallax(bg, {
     scale: 1.2
 });
+
+// Fullscreen
+const screen = document.querySelector('.screen');
+screen.addEventListener("click", function(e) {
+    toggleFullScreen();
+}, false);
+
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        scrollDepth = 350;
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen(); 
+        scrollDepth = 150;
+      }
+    }
+  }
+
 
 /* Tastaturabfrage */
 onkeydown = onkeyup = function(e){

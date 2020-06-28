@@ -60,6 +60,7 @@ function setup() {
 
 
     /* Elementerzeugung */
+
     // Bumper
     const bumper1 = new Bumper('.b1', 4);
     const bumper2 = new Bumper('.b2', 5);
@@ -98,7 +99,6 @@ function setup() {
     const l2 = new Line('.l2', 3);
 
     const allCollisionObjects = [bumper1, bumper2, bumper3, bumper4, bumper5, bumper6, bumper7, bumper8, bumper9, wall1, wall2, wall3, wall4, wall5, wall6, wall7, starter, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, l1, l2];
-
     allCollisionObjects.forEach(obj => collisonDetection.addStaticObject(obj));
 
     // Scrolling
@@ -148,21 +148,20 @@ function toggleFullScreen() {
     }
   }
 
-
-/* Tastaturabfrage */
-onkeydown = onkeyup = function(e){
-    // space
-	if ((e.keyCode=="32")&&(e.type=='keydown'))  {
-		console.log ("Tilt (Space)");
-    } else
-    // w
-	if ((e.keyCode=="87")&&(e.type=='keydown'))  {
-        movePlayfield += 100;
-        playfield.style.transform = "translateY(" + movePlayfield + "px)";
-    } else
-    // s
-	if ((e.keyCode=="83")&&(e.type=='keydown'))  {
-        movePlayfield -= 100;
-        playfield.style.transform = "translateY(" + movePlayfield + "px)";
-    }   
-}
+// /* Tastaturabfrage */
+// onkeydown = onkeyup = function(e){
+//     // space
+// 	if ((e.keyCode=="32")&&(e.type=='keydown'))  {
+// 		console.log ("Tilt (Space)");
+//     } else
+//     // w
+// 	if ((e.keyCode=="87")&&(e.type=='keydown'))  {
+//         movePlayfield += 100;
+//         playfield.style.transform = "translateY(" + movePlayfield + "px)";
+//     } else
+//     // s
+// 	if ((e.keyCode=="83")&&(e.type=='keydown'))  {
+//         movePlayfield -= 100;
+//         playfield.style.transform = "translateY(" + movePlayfield + "px)";
+//     }   
+// }

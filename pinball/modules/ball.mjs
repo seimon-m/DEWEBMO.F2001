@@ -8,7 +8,7 @@ export class Ball {
         this.r = r;
         this.gravityOn = true;
         this.velocity = new Victor(0, 0);
-        this.gravity = new Victor(0, 0.1);
+        this.gravity = new Victor(0, 0.2);
         this.table = tableObj;
         this.game = game;
         this.gameFinished = false;
@@ -33,7 +33,7 @@ export class Ball {
 
         // Initialize Animation
         this.ms = 9;
-        this.animation = this.elem.animate({},{duration: this.ms});
+        this.animation = this.elem.animate({}, { duration: this.ms });
         this.keyframes = [];
 
         // Animation Loop
@@ -49,6 +49,7 @@ export class Ball {
         const variance = Math.random() / 50 + 1; // 0 - 2% random Effekt
         this.velocity = reflect.multiplyScalar(this.bounce * bounce * variance);
 
+        // Speed limitation
         const maxSpeed = 30;
         let xSpeed = this.velocity.x;
         let ySpeed = this.velocity.y;
@@ -72,7 +73,6 @@ export class Ball {
 
         // Abbruch prüfen
         if(this.newpos.y > 2000) {
-            console.log(this.intervalID)
             const id = this.intervalID;
             this.game.checkLives(this, () => clearInterval(id));
         }

@@ -1,5 +1,3 @@
-
-
 export class StartStopGame {
     constructor(lives, scoreObj) {
         this.lives = lives;
@@ -12,7 +10,7 @@ export class StartStopGame {
     }
 
     askName() {
-        let name = prompt('Please enter your name:', 'Hedgehog');
+        let name = prompt('Please enter your name:', 'Magic Platypus');
         this.score.setName(name);
     }
 
@@ -21,8 +19,6 @@ export class StartStopGame {
         if (this.lives > 0) {
             setTimeout( this.startGame.bind(this), 1000, ball);
         } else {
-            console.log("ball: "+ ball)
-            console.log("func: "+ abortGameLoop)
             abortGameLoop();
             this.gameOver(ball);
         }

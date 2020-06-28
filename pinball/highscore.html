@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
     <link rel="stylesheet" href="styleHS.css">
-    <title>Document</title>
+    <title>Pinball</title>
 </head>
 <body>
     <div class="container1">
@@ -19,12 +20,8 @@
     const listDiv = document.getElementById('list');
     const restartButton = document.getElementById('restartButton');
     restartButton.addEventListener('click', redirect);
-    let renderOnce = false;
-
-    if(!renderOnce) {
-        getList();
-        renderOnce = true;
-    }
+    
+    getList();
 
     async function getList() {
         const url = "http://127.0.0.1:8080/?";
@@ -34,7 +31,7 @@
             listDiv.innerHTML = renderHighscoreList(resJson);
         }
         catch (err) {
-            console.log('get list fetch failed: ' + err);
+            console.log('fetch failed: ' + err);
         }
     }
 

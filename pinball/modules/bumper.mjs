@@ -11,7 +11,6 @@ class Bumper {
         this.x = parseInt(this.readStyle.left, 10) + this.r;
         this.y = parseInt(this.readStyle.top, 10) + this.r;
 
-        //this.collisionFlag = false;
         this.circle = new Circle(new Victor(this.x, this.y), this.r, bounce, this.bumper);
     }
 

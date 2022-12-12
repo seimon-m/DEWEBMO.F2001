@@ -11,7 +11,7 @@
   "dependencies": {
     "babel-install": "^2.1.0",
     "es6-promisify": "^6.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-async-await": "^1.1.0",
     "node-fetch": "^2.6.0",
     "util.promisify": "^1.0.1"
